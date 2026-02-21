@@ -5,7 +5,7 @@ import heroImg from '../assets/benner/benner.webp';
 export default function Hero() {
     return (
         <section
-            className="relative pt-20 pb-10 md:pt-28 md:pb-12 overflow-hidden min-h-[calc(100vh-80px)] flex items-center bg-cover bg-[position:85%_center] md:bg-center bg-no-repeat"
+            className="relative pt-20 pb-10 md:pt-28 md:pb-12 overflow-hidden min-h-[75vh] md:min-h-[calc(100vh-80px)] flex items-center bg-cover bg-[position:85%_center] md:bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${heroImg})` }}
         >
             {/* Dark gradient overlay for text readability */}

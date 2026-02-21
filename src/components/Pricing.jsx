@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import { Timer } from 'lucide-react';
 import { pricingPackages } from '../data/mockData';
 
@@ -33,11 +32,11 @@ export default function Pricing({ onOpenCheckout }) {
     };
 
     return (
-        <section id="pricing" className="py-24 bg-slate-50 relative overflow-hidden">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[600px] bg-emerald-500/5 rounded-[100%] blur-3xl z-0" />
+        <section id="pricing" className="py-24">
 
-            <div className="container mx-auto md:px-12 relative z-10">
-                <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20 px-6 md:px-0">
+
+            <div className="mx-auto md:px-12">
+                <div className="text-center max-w-3xl mx-auto mb-20 px-4 md:px-0">
                     <span className="text-emerald-600 font-bold uppercase tracking-wider text-sm mb-3 block">
                         Program Belajar
                     </span>
@@ -49,15 +48,11 @@ export default function Pricing({ onOpenCheckout }) {
                     </p>
                 </div>
 
-                <div className="flex md:grid md:grid-cols-3 gap-5 md:gap-8 max-w-6xl mx-auto items-stretch md:items-center overflow-x-auto pb-10 snap-x snap-mandatory px-6 md:px-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                <div className="flex md:grid md:grid-cols-3 gap-3 md:gap-8 max-w-6xl mx-auto items-stretch md:items-center overflow-x-auto pb-4 snap-x snap-mandatory px-4 md:px-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                     {pricingPackages.map((pkg, idx) => (
-                        <motion.div
+                        <div
                             key={pkg.id}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: idx * 0.15 }}
-                            className={`relative bg-white rounded-xl md:rounded-3xl flex flex-col group transition-all duration-300 overflow-hidden w-[290px] min-w-[290px] max-w-[290px] md:min-w-0 md:max-w-none md:w-auto snap-center shrink-0 ${pkg.isBestSeller
+                            className={`relative bg-white rounded-xl md:rounded-3xl flex flex-col group transition-all duration-300 overflow-hidden w-[38vw] min-w-[38vw] max-w-[38vw] md:min-w-0 md:max-w-none md:w-auto snap-center shrink-0 ${pkg.isBestSeller
                                 ? 'border-2 border-emerald-500 shadow-xl md:shadow-2xl shadow-emerald-500/20 md:-translate-y-2 z-20'
                                 : 'border border-slate-200 shadow hover:shadow-lg z-10 md:hover:-translate-y-2'
                                 }`}
@@ -122,7 +117,7 @@ export default function Pricing({ onOpenCheckout }) {
                                     Pilih & Checkout Paket
                                 </button>
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
             </div>
