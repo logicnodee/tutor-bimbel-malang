@@ -15,10 +15,13 @@ export default function Pricing({ onOpenCheckout }) {
         return () => clearInterval(timerId);
     }, []);
 
-    const formatTime = (seconds) => {
+    const formatTime = (seconds, compact = false) => {
         const h = Math.floor(seconds / 3600);
         const m = Math.floor((seconds % 3600) / 60);
         const s = seconds % 60;
+        if (compact) {
+            return `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+        }
         return `${h.toString().padStart(2, '0')}j : ${m.toString().padStart(2, '0')}m : ${s.toString().padStart(2, '0')}d`;
     };
 
@@ -100,14 +103,13 @@ export default function Pricing({ onOpenCheckout }) {
                                 </div>
 
                                 {/* Countdown Jam */}
-                                <div className="mb-2 md:mb-4 bg-rose-50 border border-rose-100 px-1.5 md:px-3 py-1 md:py-1.5 w-full rounded-md md:rounded-lg flex flex-col items-center justify-center gap-0.5 md:gap-1">
-                                    <span className="text-[6px] md:text-[9px] uppercase font-bold text-rose-600 tracking-wider">
-                                        Promo Berakhir:
+                                <div className="mb-2 md:mb-4 bg-rose-50 border border-rose-100 px-1 md:px-3 py-0.5 md:py-1.5 w-full rounded-md md:rounded-lg flex items-center justify-center gap-0.5 md:gap-1">
+                                    <Timer className="hidden md:block w-4 h-4 animate-pulse text-rose-500" />
+                                    <span className="text-rose-500 font-black font-mono text-[7px] md:text-sm">
+                                        <span className="hidden md:inline">Berakhir </span>
+                                        <span className="md:hidden">{formatTime(timeLeft, true)}</span>
+                                        <span className="hidden md:inline">{formatTime(timeLeft)}</span>
                                     </span>
-                                    <div className="flex items-center gap-1 md:gap-1.5 text-rose-500 font-black font-mono text-[8px] md:text-sm">
-                                        <Timer className="w-2.5 h-2.5 md:w-4 md:h-4 animate-pulse" />
-                                        {formatTime(timeLeft)}
-                                    </div>
                                 </div>
 
                                 <button
