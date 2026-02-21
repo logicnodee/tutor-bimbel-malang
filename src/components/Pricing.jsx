@@ -32,40 +32,40 @@ export default function Pricing({ onOpenCheckout }) {
     };
 
     return (
-        <section id="pricing" className="py-24">
+        <section id="pricing" className="py-12 md:py-24">
 
 
             <div className="mx-auto md:px-12">
-                <div className="text-center max-w-3xl mx-auto mb-20 px-4 md:px-0">
-                    <span className="text-emerald-600 font-bold uppercase tracking-wider text-sm mb-3 block">
+                <div className="text-center max-w-3xl mx-auto mb-8 md:mb-20 px-4 md:px-0">
+                    <span className="text-emerald-600 font-bold uppercase tracking-wider text-[10px] md:text-sm mb-2 md:mb-3 block">
                         Program Belajar
                     </span>
-                    <h2 className="text-4xl md:text-5xl font-extrabold text-navy-900 mb-6 tracking-tight">
+                    <h2 className="text-2xl md:text-5xl font-extrabold text-navy-900 mb-3 md:mb-6 tracking-tight">
                         Pilih Paket Bimbingan Bulan Ini
                     </h2>
-                    <p className="text-slate-600 text-lg">
+                    <p className="text-slate-600 text-xs md:text-lg">
                         Dapatkan harga spesial sebelum waktu promo eksklusif ini habis secara otomatis!
                     </p>
                 </div>
 
-                <div className="flex md:grid md:grid-cols-3 gap-3 md:gap-8 max-w-6xl mx-auto items-stretch md:items-center overflow-x-auto pb-4 snap-x snap-mandatory px-4 md:px-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                <div className="flex md:grid md:grid-cols-3 gap-2 md:gap-8 max-w-6xl mx-auto items-stretch md:items-center overflow-x-auto pb-4 snap-x snap-mandatory px-3 md:px-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                     {pricingPackages.map((pkg, idx) => (
                         <div
                             key={pkg.id}
-                            className={`relative bg-white rounded-xl md:rounded-3xl flex flex-col group transition-all duration-300 overflow-hidden w-[38vw] min-w-[38vw] max-w-[38vw] md:min-w-0 md:max-w-none md:w-auto snap-center shrink-0 ${pkg.isBestSeller
+                            className={`relative bg-white rounded-xl md:rounded-3xl flex flex-col group transition-all duration-300 overflow-hidden w-[30vw] min-w-[30vw] max-w-[30vw] md:min-w-0 md:max-w-none md:w-auto snap-center shrink-0 ${pkg.isBestSeller
                                 ? 'border-2 border-emerald-500 shadow-xl md:shadow-2xl shadow-emerald-500/20 md:-translate-y-2 z-20'
                                 : 'border border-slate-200 shadow hover:shadow-lg z-10 md:hover:-translate-y-2'
                                 }`}
                         >
                             {/* Best Seller Label */}
                             {pkg.isBestSeller && (
-                                <div className="absolute top-0 right-0 bg-gradient-to-bl from-emerald-500 to-teal-400 text-white px-5 py-2 font-bold text-xs md:text-sm shadow-md z-30 rounded-bl-2xl">
+                                <div className="absolute top-0 right-0 bg-gradient-to-bl from-emerald-500 to-teal-400 text-white px-2 py-1 md:px-5 md:py-2 font-bold text-[7px] md:text-sm shadow-md z-30 rounded-bl-xl md:rounded-bl-2xl">
                                     BEST SELLER
                                 </div>
                             )}
 
                             {pkg.image && (
-                                <div className="w-full aspect-[4/3] rounded-t-xl overflow-hidden bg-slate-100 border-b border-slate-100 relative">
+                                <div className="w-full aspect-[4/3] md:aspect-[4/3] rounded-t-xl overflow-hidden bg-slate-100 border-b border-slate-100 relative">
                                     <img
                                         src={pkg.image}
                                         alt={pkg.name}
@@ -74,45 +74,45 @@ export default function Pricing({ onOpenCheckout }) {
                                 </div>
                             )}
 
-                            <div className="p-4 md:p-5 flex-grow flex flex-col items-center justify-center text-center">
-                                <h3 className="text-sm md:text-xl font-bold text-navy-900 leading-tight mb-2 md:mb-3">
+                            <div className="p-2 md:p-5 flex-grow flex flex-col items-center justify-center text-center">
+                                <h3 className="text-[10px] md:text-xl font-bold text-navy-900 leading-tight mb-1 md:mb-3">
                                     {pkg.name}
                                 </h3>
 
-                                <p className="text-[10px] md:text-xs text-slate-500 leading-relaxed mb-3 md:mb-4 px-1 md:px-2 line-clamp-3">
+                                <p className="text-[8px] md:text-xs text-slate-500 leading-snug mb-2 md:mb-4 px-0.5 md:px-2 line-clamp-2 md:line-clamp-3">
                                     {pkg.description}
                                 </p>
 
                                 {/* Harga Coret (Strikethrough) */}
-                                <div className="flex flex-col items-center mb-3 md:mb-4">
-                                    <div className="flex items-center justify-center gap-2 mb-0.5">
-                                        <span className="text-xs md:text-sm text-slate-400 line-through decoration-rose-500 decoration-2 font-medium">
+                                <div className="flex flex-col items-center mb-2 md:mb-4">
+                                    <div className="flex items-center justify-center gap-1 md:gap-2 mb-0.5">
+                                        <span className="text-[8px] md:text-sm text-slate-400 line-through decoration-rose-500 decoration-1 md:decoration-2 font-medium">
                                             Rp {getOriginalPrice(pkg.price)}
                                         </span>
-                                        <span className="bg-rose-500 text-white font-black text-[9px] md:text-[10px] px-2 py-0.5 rounded-full shadow-sm animate-bounce">
-                                            Diskon 60%
+                                        <span className="bg-rose-500 text-white font-black text-[6px] md:text-[10px] px-1 md:px-2 py-0.5 rounded-full shadow-sm animate-bounce">
+                                            -60%
                                         </span>
                                     </div>
                                     <div className="flex items-baseline text-emerald-600">
-                                        <span className="text-xs md:text-lg font-bold mr-1">Rp</span>
-                                        <span className="text-xl md:text-4xl font-extrabold tracking-tight">{pkg.price}</span>
+                                        <span className="text-[8px] md:text-lg font-bold mr-0.5">Rp</span>
+                                        <span className="text-sm md:text-4xl font-extrabold tracking-tight">{pkg.price}</span>
                                     </div>
                                 </div>
 
                                 {/* Countdown Jam */}
-                                <div className="mb-3 md:mb-4 bg-rose-50 border border-rose-100 px-3 py-1.5 w-full rounded-lg flex flex-col items-center justify-center gap-1">
-                                    <span className="text-[9px] uppercase font-bold text-rose-600 tracking-wider">
-                                        Promo Berakhir Dalam:
+                                <div className="mb-2 md:mb-4 bg-rose-50 border border-rose-100 px-1.5 md:px-3 py-1 md:py-1.5 w-full rounded-md md:rounded-lg flex flex-col items-center justify-center gap-0.5 md:gap-1">
+                                    <span className="text-[6px] md:text-[9px] uppercase font-bold text-rose-600 tracking-wider">
+                                        Promo Berakhir:
                                     </span>
-                                    <div className="flex items-center gap-1.5 text-rose-500 font-black font-mono text-xs md:text-sm">
-                                        <Timer className="w-3.5 h-3.5 md:w-4 md:h-4 animate-pulse" />
+                                    <div className="flex items-center gap-1 md:gap-1.5 text-rose-500 font-black font-mono text-[8px] md:text-sm">
+                                        <Timer className="w-2.5 h-2.5 md:w-4 md:h-4 animate-pulse" />
                                         {formatTime(timeLeft)}
                                     </div>
                                 </div>
 
                                 <button
                                     onClick={() => onOpenCheckout(pkg)}
-                                    className="w-full py-2 md:py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-lg text-[11px] md:text-[13px] border border-emerald-500 shadow shadow-emerald-500/20 transition-all hover:-translate-y-0.5 hover:shadow-emerald-500/40"
+                                    className="w-full py-1.5 md:py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-md md:rounded-lg text-[7px] md:text-[13px] border border-emerald-500 shadow shadow-emerald-500/20 transition-all hover:-translate-y-0.5 hover:shadow-emerald-500/40"
                                 >
                                     Pilih & Checkout Paket
                                 </button>
