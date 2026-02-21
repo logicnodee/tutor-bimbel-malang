@@ -49,7 +49,7 @@ export default function Pricing({ onOpenCheckout }) {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-3 gap-3 md:gap-8 max-w-6xl mx-auto items-stretch md:items-center">
+                <div className="flex md:grid md:grid-cols-3 gap-4 md:gap-8 max-w-6xl mx-auto items-stretch md:items-center overflow-x-auto pb-8 snap-x snap-mandatory px-4 md:px-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                     {pricingPackages.map((pkg, idx) => (
                         <motion.div
                             key={pkg.id}
@@ -57,7 +57,7 @@ export default function Pricing({ onOpenCheckout }) {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: idx * 0.15 }}
-                            className={`relative bg-white rounded-xl md:rounded-3xl flex flex-col group transition-all duration-300 overflow-hidden ${pkg.isBestSeller
+                            className={`relative bg-white rounded-xl md:rounded-3xl flex flex-col group transition-all duration-300 overflow-hidden min-w-[85vw] sm:min-w-[320px] md:min-w-0 md:w-auto snap-center shrink-0 ${pkg.isBestSeller
                                 ? 'border-2 border-emerald-500 shadow-xl md:shadow-2xl shadow-emerald-500/20 md:-translate-y-2 z-20'
                                 : 'border border-slate-200 shadow hover:shadow-lg z-10 md:hover:-translate-y-2'
                                 }`}
